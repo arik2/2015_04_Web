@@ -21,10 +21,10 @@
 			if(gameBoard[cellId]!=0)
 				return;
 			if(turn){
-				cell.innerHTML = "X";
+				cell.innerHTML = '<img src="TTT_x.png" alt="x" style="width: 110px; height: 110px;"/>';
 				gameBoard[cellId] = 1;
 			}else{
-				cell.innerHTML = "O";
+				cell.innerHTML = '<img src="TTT_o.png" alt="o" style="width: 110px; height: 110px;"/>';
 				gameBoard[cellId] = 2;
 			}
 			turn = !turn;
@@ -35,14 +35,18 @@
 		.cell{
 			width: 100px;
 			height: 100px;
-			background-color: #DEDEDE;
-			margin: 10px;
+			margin: 20px;
 			float: left;
 			font-size: 90px;
 			text-align: center;
 		}
 		.newrow{
 			clear: both;
+		}
+		#board{
+			background-image: url('board.png');
+			width: 420px;
+			height: 420px;
 		}
 	</style>
 </head>
