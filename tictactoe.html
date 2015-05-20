@@ -4,17 +4,18 @@
 	<script>
 		// 0 - no one played, 1 - x played, 2 - O played
 		var gameBoard = [0,0,0,0,0,0,0,0,0];
-		var turn = true; //true means X, false means O
-		var clickCounter = 0;
+		var turn; //true means X, false means O
+		var clickCounter;
 		function init(){
 			var board = document.getElementById('board');
-			
+			clickCounter = 0;
 			//var s = '<div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell newrow"></div><div class="cell"></div>';
 			var s = "";
 			for(var i=0;i<9;i++){
+				gameBoard[i] = 0;
 				s += '<div id="cell'+i+'" onclick="cellClicked('+i+')" class="cell'+ (i%3==0 ? ' newrow' : '') +'"></div>';
 			}
-			
+			turn = true;
 			board.innerHTML = s;
 		}
 		function cellClicked(cellId){
@@ -63,6 +64,7 @@
 		}
 		
 		
+		
 	</script>
 	<style>
 		.cell{
@@ -86,8 +88,10 @@
 <body onload="init()">
 
 <div id="board"></div>
-<img src="TTT_x.png" alt="x" style="width: 110px; height: 110px;"/>
 
+
+<br/>
+<button onclick="init()">reset game</button>
 
 </body>
 
