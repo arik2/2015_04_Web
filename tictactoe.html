@@ -5,6 +5,7 @@
 		// 0 - no one played, 1 - x played, 2 - O played
 		var gameBoard = [0,0,0,0,0,0,0,0,0];
 		var turn = true; //true means X, false means O
+		var clickCounter = 0;
 		function init(){
 			var board = document.getElementById('board');
 			
@@ -29,9 +30,11 @@
 			}
 			if(checkForVictory()){
 				alert((turn ? "X" : "O") + " is the winner");
+				return;
 			}
-			
 			turn = !turn;
+			if(++clickCounter == 9)
+				alert("we have a draw");
 			//alert('cell clicked: ' + cellId);
 		}
 		/*
@@ -58,6 +61,8 @@
 			
 			return diagonal1 || diagonal2;
 		}
+		
+		
 	</script>
 	<style>
 		.cell{
